@@ -7,7 +7,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "tb_product")
-public class Product {
+public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_product", unique = true)
@@ -23,10 +23,10 @@ public class Product {
     @Column(name = "available_product", nullable = false)
     private Boolean available;
 
-    public Product() {
+    public ProductEntity() {
     }
 
-    public Product(String name, String description, BigDecimal price, String image, Boolean available) {
+    public ProductEntity(String name, String description, BigDecimal price, String image, Boolean available) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -81,7 +81,7 @@ public class Product {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
+        ProductEntity product = (ProductEntity) o;
         return Objects.equals(id, product.id);
     }
 
