@@ -1,5 +1,6 @@
 package com.luciggl.dev.SistemaRestaurante.entities;
 
+import com.luciggl.dev.SistemaRestaurante.enums.ProductCategory;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
@@ -22,16 +23,17 @@ public class ProductEntity {
     private String image;
     @Column(name = "available_product", nullable = false)
     private Boolean available;
+    @Column(name = "category_product", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private ProductCategory category;
 
-    public ProductEntity() {
-    }
-
-    public ProductEntity(String name, String description, BigDecimal price, String image, Boolean available) {
+    public ProductEntity(String name, String description, BigDecimal price, String image, Boolean available, ProductCategory category) {
         this.name = name;
         this.description = description;
         this.price = price;
         this.image = image;
         this.available = available;
+        this.category = category;
     }
 
     public Long getId() {
@@ -76,6 +78,14 @@ public class ProductEntity {
 
     public void setAvailable(Boolean available) {
         this.available = available;
+    }
+
+    public ProductCategory getCategory() {
+        return category;
+    }
+
+    public void setCategory(ProductCategory category) {
+        this.category = category;
     }
 
     @Override
