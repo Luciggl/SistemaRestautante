@@ -36,6 +36,9 @@ public class ProductEntity {
         this.category = category;
     }
 
+    public ProductEntity() {
+    }
+
     public Long getId() {
         return id;
     }
